@@ -1,5 +1,5 @@
 # Advent of Code
-Kotlin app exercises for [Advent of Code](https://adventofcode.com/).
+Kotlin app with [Advent of Code](https://adventofcode.com/) exercises.
 
 ## Requirements
 * [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)

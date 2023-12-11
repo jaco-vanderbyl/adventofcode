@@ -13,7 +13,7 @@ class Calibrator(documentFileName: String = "year2023/day1/calibration_document"
         if (it.isNotEmpty()) "${it.first()}${it.last()}".toInt() else 0
     }
 
-    fun sum()  = calibrations.map {
+    fun sum() : Int = calibrations.map {
         mapOf(
             "one" to "o1e",
             "two" to "t2o",

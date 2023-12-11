@@ -7,8 +7,8 @@ class Calibrator(documentFileName: String = "year2023/day1/calibration_document"
         ClassLoader.getSystemResourceAsStream(documentFileName)?.bufferedReader()?.useLines { calibrations.addAll(it) }
     }
 
-    fun sumWithNotQuiteRightCalc() : Int = calibrations.map { line ->
-        line.filter { it.digitToIntOrNull() != null }
+    fun sumWithNotQuiteRightCalc() : Int = calibrations.map {
+        it.filter { char -> char.isDigit() }
     }.sumOf {
         if (it.isNotEmpty()) "${it.first()}${it.last()}".toInt() else 0
     }
@@ -27,8 +27,8 @@ class Calibrator(documentFileName: String = "year2023/day1/calibration_document"
         ).entries.fold(it) { string, (spelledNumber, numericString) ->
             string.replace(spelledNumber, numericString)
         }
-    }.map { line ->
-        line.filter { it.digitToIntOrNull() != null }
+    }.map {
+        it.filter { char -> char.isDigit() }
     }.sumOf {
         if (it.isNotEmpty()) "${it.first()}${it.last()}".toInt() else 0
     }

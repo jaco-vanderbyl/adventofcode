@@ -24,7 +24,9 @@ class Calibrator(documentFileName: String = "year2023/day1/calibration_document"
             "seven" to "s7n",
             "eight" to "e8t",
             "nine" to "n9e",
-        ).entries.fold(it) {string, (spelledNumber, numericString) -> string.replace(spelledNumber, numericString) }
+        ).entries.fold(it) { string, (spelledNumber, numericString) ->
+            string.replace(spelledNumber, numericString)
+        }
     }.map { line ->
         line.filter { it.digitToIntOrNull() != null }
     }.sumOf {

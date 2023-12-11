@@ -33,7 +33,7 @@ import adventofcode.year2023.day1.Calibrator
 
 class App {
     fun year2023Day1Puzzle1() {
-        println("2023 Day1 Puzzle1, Question: What is the not quite right sum of all the calibration values?")
+        println("2023 Day1 Puzzle1, Question: What is the not-quite-right sum of all the calibration values?")
         println("Answer: ${Calibrator().sumWithNotQuiteRightCalc()}")
     }
     fun year2023Day1Puzzle2() {
@@ -49,7 +49,7 @@ fun main() {
 ```
 Prints:
 ```
-2023 Day1 Puzzle1, Question: What is the not quite right sum of all the calibration values?
+2023 Day1 Puzzle1, Question: What is the not-quite-right sum of all the calibration values?
 Answer: 56049
 2023 Day1 Puzzle2, Question: What is the sum of all the calibration values?
 Answer: 54530

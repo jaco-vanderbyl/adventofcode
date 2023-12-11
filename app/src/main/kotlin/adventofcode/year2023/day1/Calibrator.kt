@@ -1,5 +1,8 @@
 package adventofcode.year2023.day1
 
+/**
+ * https://adventofcode.com/2023/day/1
+ */
 class Calibrator(documentFileName: String = "year2023/day1/calibration_document") {
     private val calibrations = mutableListOf<String>()
 

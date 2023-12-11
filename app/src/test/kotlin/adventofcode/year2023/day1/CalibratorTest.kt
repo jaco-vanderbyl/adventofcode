@@ -5,12 +5,12 @@ import kotlin.test.assertEquals
 
 class CalibratorTest {
     @Test
-    fun `ensure total calibration sum is correct using puzzle 1's not quite right calculation`() {
+    fun `ensure total calibration sum is correct using puzzle 1's not-quite-right calculation`() {
         val calibrator = Calibrator("year2023/day1/puzzle1_sample_calibration_document")
         assertEquals(
             expected = 142,
             actual = calibrator.sumWithNotQuiteRightCalc(),
-            message = "Failed to ensure total calibration sum is correct using puzzle 1's not quite right calculation."
+            message = "Failed to ensure total calibration sum is correct using puzzle 1's not-quite-right calculation."
         )
     }
 

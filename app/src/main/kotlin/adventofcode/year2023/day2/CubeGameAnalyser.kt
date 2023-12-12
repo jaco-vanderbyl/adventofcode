@@ -14,4 +14,10 @@ class CubeGameAnalyser(documentFileName: String = "year2023/day2/cube_games_log"
     }.mapNotNull { str ->
         Regex("""Game (?<id>\d+)""").find(str)?.groups?.get("id")?.value?.toInt()
     }.sum()
+
+    fun sumOfGameSetPowers() : Int = gameLog.sumOf { str ->
+        Regex("""(?<r>\d+) red""").findAll(str).mapNotNull { it.groups["r"]?.value?.toInt() }.max() *
+        Regex("""(?<g>\d+) green""").findAll(str).mapNotNull { it.groups["g"]?.value?.toInt() }.max() *
+        Regex("""(?<b>\d+) blue""").findAll(str).mapNotNull { it.groups["b"]?.value?.toInt() }.max()
+    }
 }

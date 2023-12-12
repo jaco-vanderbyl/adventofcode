@@ -13,4 +13,14 @@ class CubeGameAnalyserTest {
             message = "Failed to ensure total sum of game IDs for possible games is correct."
         )
     }
+
+    @Test
+    fun `ensure total sum of game set powers is correct`() {
+        val gameAnalyser = CubeGameAnalyser("year2023/day2/puzzle2_sample_cube_games_log")
+        assertEquals(
+            expected = 2286,
+            actual = gameAnalyser.sumOfGameSetPowers(),
+            message = "Failed to ensure total sum of game set powers is correct."
+        )
+    }
 }

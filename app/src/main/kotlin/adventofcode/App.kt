@@ -19,10 +19,15 @@ class App {
         println("2023 Day2 Puzzle1, Question: What is the sum of the IDs of possible cube games?")
         println("Answer: ${CubeGameAnalyser().sumOfGameIds(redMax = 12, greenMax = 13, blueMax = 14)}")
     }
+    fun year2023Day2Puzzle2() {
+        println("2023 Day2 Puzzle2, Question: What is the sum of the power of cube game sets?")
+        println("Answer: ${CubeGameAnalyser().sumOfGameSetPowers()}")
+    }
 }
 
 fun main() {
     App().year2023Day1Puzzle1()
     App().year2023Day1Puzzle2()
     App().year2023Day2Puzzle1()
+    App().year2023Day2Puzzle2()
 }

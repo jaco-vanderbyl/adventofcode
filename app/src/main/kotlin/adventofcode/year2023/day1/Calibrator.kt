@@ -3,11 +3,11 @@ package adventofcode.year2023.day1
 /**
  * https://adventofcode.com/2023/day/1
  */
-class Calibrator(documentFileName: String = "year2023/day1/calibration_document") {
+class Calibrator(fileName: String = "year2023/day1/calibration_document") {
     private val calibrations = mutableListOf<String>()
 
     init {
-        ClassLoader.getSystemResourceAsStream(documentFileName)?.bufferedReader()?.useLines { calibrations.addAll(it) }
+        ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { calibrations.addAll(it) }
     }
 
     fun sumWithNotQuiteRightCalc() : Int = calibrations.map {

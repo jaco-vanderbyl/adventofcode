@@ -48,6 +48,10 @@ class App {
         println("2023 Day2 Puzzle2, Question: What is the sum of the power of cube game sets?")
         println("Answer: ${CubeGameAnalyser().sumOfGameSetPowers()}")
     }
+    fun year2023Day3Puzzle1() {
+        println("2023 Day3 Puzzle1, Question: What is the sum of all of the part numbers in the engine schematic?")
+        println("Answer: ${Engine().sumOfPartNumbers()}")
+    }
 }
 
 fun main() {
@@ -55,6 +59,7 @@ fun main() {
     App().year2023Day1Puzzle2()
     App().year2023Day2Puzzle1()
     App().year2023Day2Puzzle2()
+    App().year2023Day3Puzzle1()
 }
 ```
 Prints:
@@ -67,4 +72,6 @@ Answer: 54530
 Answer: 2476
 2023 Day2 Puzzle2, Question: What is the sum of the power of cube game sets?
 Answer: 54911
+2023 Day3 Puzzle1, Question: What is the sum of all of the part numbers in the engine schematic?
+Answer: 525119
 ```

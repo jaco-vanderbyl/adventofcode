@@ -1,10 +1,10 @@
 package adventofcode.year2023.day2
 
-class CubeGameAnalyser(documentFileName: String = "year2023/day2/cube_games_log") {
+class CubeGameAnalyser(fileName: String = "year2023/day2/cube_games_log") {
     private val gameLog = mutableListOf<String>()
 
     init {
-        ClassLoader.getSystemResourceAsStream(documentFileName)?.bufferedReader()?.useLines { gameLog.addAll(it) }
+        ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { gameLog.addAll(it) }
     }
 
     fun sumOfGameIds(redMax: Int, greenMax: Int, blueMax: Int) : Int = gameLog.filterNot { str ->

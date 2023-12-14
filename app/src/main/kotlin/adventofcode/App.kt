@@ -37,6 +37,10 @@ class App {
         println("2023 Day4 Puzzle1, Question: How many points are the scratchcards worth in total?")
         println("Answer: ${ScratchCards().totalPoints()}")
     }
+    fun year2023Day4Puzzle2() {
+        println("2023 Day4 Puzzle2, Question: How many total scratchcards do you end up with?")
+        println("Answer: ${ScratchCards().totalCards()}")
+    }
 }
 
 fun main() {
@@ -47,4 +51,5 @@ fun main() {
     App().year2023Day3Puzzle1()
     App().year2023Day3Puzzle2()
     App().year2023Day4Puzzle1()
+    App().year2023Day4Puzzle2()
 }

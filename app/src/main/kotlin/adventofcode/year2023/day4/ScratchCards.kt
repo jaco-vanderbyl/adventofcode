@@ -1,5 +1,7 @@
 package adventofcode.year2023.day4
 
+import kotlin.math.pow
+
 class ScratchCards(fileName: String = "year2023/day4/scratch_cards") {
     private val cards = mutableListOf<String>()
 
@@ -7,7 +9,26 @@ class ScratchCards(fileName: String = "year2023/day4/scratch_cards") {
         ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { cards.addAll(it) }
     }
 
-    fun totalPoints() : Int = cards.map { row ->
+    fun totalPoints() : Int = cardWins().filter { winCount ->
+        winCount > 0
+    }.sumOf { winCount ->
+        (2.0).pow(winCount - 1).toInt()
+    }
+
+    fun totalCards() : Int {
+        val cardCounts = IntArray(cards.size) { 1 }
+        val cardWins = cardWins()
+
+        cardCounts.forEachIndexed { card, cardCount ->
+            for (i in 1..cardCount) {
+                copies(card, cardWins[card]).forEach { cardCounts[it]++ }
+            }
+        }
+
+        return cardCounts.sum()
+    }
+
+    private fun cardWins() : List<Int> = cards.map { row ->
         row.substringAfter(":").split("|").map { numbersStr ->
             numbersStr.trim().replace("\\s+".toRegex(), " ").split(" ").map { numberStr ->
                 numberStr.toInt()
@@ -15,14 +36,11 @@ class ScratchCards(fileName: String = "year2023/day4/scratch_cards") {
         }
     }.map { cardNumbers ->
         cardNumbers[0].intersect(cardNumbers[1]).size
-    }.filter { winCount ->
-        winCount > 0
-    }.sumOf { winCount ->
-        doublingSequence(n = winCount - 1)
     }
 
-    private fun doublingSequence(seed: Int = 1, n: Int) : Int = when (n) {
-        in 1..20 -> doublingSequence(seed * 2, n - 1)
-        else -> seed
-    }
+    private fun copies(cardIndex: Int, winCount: Int) : Set<Int> = IntArray(winCount) {
+        cardIndex + 1 + it
+    }.filter {
+        it <= cards.size
+    }.toSet()
 }

@@ -28,7 +28,7 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
         heatCors.add(Triple(row, col1 - 1, num))
         heatCors.add(Triple(row, col2 + 1, num))
 
-        return heatCors.filterNot { it.first < 0 || it.first >= size || it.second < 0 || it.second >= length }
+        return heatCors.filter { inBounds(it.first, it.second) }
     }
 
     enum class Dir { LEFT, RIGHT }

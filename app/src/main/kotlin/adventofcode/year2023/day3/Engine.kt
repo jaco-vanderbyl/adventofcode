@@ -75,7 +75,5 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
         }
     }
 
-    private fun inBounds(row: Int, col: Int) : Boolean = (
-        row >= 0 && row < schematic.size && col >= 0 && col < schematic[row].length
-    )
+    private fun inBounds(row: Int, col: Int) : Boolean = row in 0..<schematic.size && col in 0..<schematic[row].length
 }

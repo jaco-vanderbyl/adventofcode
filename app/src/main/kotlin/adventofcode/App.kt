@@ -3,6 +3,7 @@ package adventofcode
 import adventofcode.year2023.day1.Calibrator
 import adventofcode.year2023.day2.CubeGameAnalyser
 import adventofcode.year2023.day3.Engine
+import adventofcode.year2023.day4.ScratchCards
 
 /**
  * https://adventofcode.com
@@ -32,6 +33,10 @@ class App {
         println("2023 Day3 Puzzle2, Question: What is the sum of all of the gear ratios in your engine schematic?")
         println("Answer: ${Engine().sumOfGearRatios()}")
     }
+    fun year2023Day4Puzzle1() {
+        println("2023 Day4 Puzzle1, Question: How many points are the scratchcards worth in total?")
+        println("Answer: ${ScratchCards().totalPoints()}")
+    }
 }
 
 fun main() {
@@ -41,4 +46,5 @@ fun main() {
     App().year2023Day2Puzzle2()
     App().year2023Day3Puzzle1()
     App().year2023Day3Puzzle2()
+    App().year2023Day4Puzzle1()
 }

@@ -56,6 +56,10 @@ class App {
         println("2023 Day3 Puzzle2, Question: What is the sum of all of the gear ratios in your engine schematic?")
         println("Answer: ${Engine().sumOfGearRatios()}")
     }
+    fun year2023Day4Puzzle1() {
+        println("2023 Day4 Puzzle1, Question: How many points are the scratchcards worth in total?")
+        println("Answer: ${ScratchCards().totalPoints()}")
+    }
 }
 
 fun main() {
@@ -65,6 +69,7 @@ fun main() {
     App().year2023Day2Puzzle2()
     App().year2023Day3Puzzle1()
     App().year2023Day3Puzzle2()
+    App().year2023Day4Puzzle1()
 }
 ```
 _Note that the answers will differ for individuals as the provided puzzle input for users are different._
@@ -83,4 +88,6 @@ Answer: 54911
 Answer: 525119
 2023 Day3 Puzzle2, Question: What is the sum of all of the gear ratios in your engine schematic?
 Answer: 76504829
+2023 Day4 Puzzle1, Question: How many points are the scratchcards worth in total?
+Answer: 28538
 ```

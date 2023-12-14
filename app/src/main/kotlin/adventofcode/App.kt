@@ -28,6 +28,10 @@ class App {
         println("2023 Day3 Puzzle1, Question: What is the sum of all of the part numbers in the engine schematic?")
         println("Answer: ${Engine().sumOfPartNumbers()}")
     }
+    fun year2023Day3Puzzle2() {
+        println("2023 Day3 Puzzle2, Question: What is the sum of all of the gear ratios in your engine schematic?")
+        println("Answer: ${Engine().sumOfGearRatios()}")
+    }
 }
 
 fun main() {
@@ -36,4 +40,5 @@ fun main() {
     App().year2023Day2Puzzle1()
     App().year2023Day2Puzzle2()
     App().year2023Day3Puzzle1()
+    App().year2023Day3Puzzle2()
 }

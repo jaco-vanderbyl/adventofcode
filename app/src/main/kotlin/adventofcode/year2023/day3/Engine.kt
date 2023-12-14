@@ -31,6 +31,8 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
         return heatCors.filterNot { it.first < 0 || it.first >= size || it.second < 0 || it.second >= length }
     }
 
+    enum class Dir { LEFT, RIGHT }
+
     fun sumOfGearRatios() = schematic.mapIndexed { rIndex, row ->
         """\*""".toRegex().findAll(row).map {
             findParts(rIndex, it.range.first)
@@ -77,4 +79,3 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
         rIndex >= 0 && rIndex < schematic.size && cIndex >= 0 && cIndex < schematic[rIndex].length
     )
 }
-enum class Dir { LEFT, RIGHT }

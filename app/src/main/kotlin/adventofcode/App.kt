@@ -4,6 +4,7 @@ import adventofcode.year2023.day1.Calibrator
 import adventofcode.year2023.day2.CubeGameAnalyser
 import adventofcode.year2023.day3.Engine
 import adventofcode.year2023.day4.ScratchCards
+import adventofcode.year2023.day5.SeedMap
 
 /**
  * https://adventofcode.com
@@ -41,6 +42,11 @@ class App {
         println("2023 Day4 Puzzle2, Question: How many total scratchcards do you end up with?")
         println("Answer: ${ScratchCards().totalCards()}")
     }
+    fun year2023Day5Puzzle1() {
+        println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
+                "the initial seed numbers?")
+        println("Answer: ${SeedMap().lowestLocation()}")
+    }
 }
 
 fun main() {
@@ -52,4 +58,5 @@ fun main() {
     App().year2023Day3Puzzle2()
     App().year2023Day4Puzzle1()
     App().year2023Day4Puzzle2()
+    App().year2023Day5Puzzle1()
 }

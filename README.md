@@ -64,6 +64,11 @@ class App {
         println("2023 Day4 Puzzle2, Question: How many total scratchcards do you end up with?")
         println("Answer: ${ScratchCards().totalCards()}")
     }
+    fun year2023Day5Puzzle1() {
+        println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
+                "the initial seed numbers?")
+        println("Answer: ${SeedMap().lowestLocation()}")
+    }
 }
 
 fun main() {
@@ -75,6 +80,7 @@ fun main() {
     App().year2023Day3Puzzle2()
     App().year2023Day4Puzzle1()
     App().year2023Day4Puzzle2()
+    App().year2023Day5Puzzle1()
 }
 ```
 _Note that the answers will differ for individuals as the provided puzzle input for users are different._
@@ -97,4 +103,6 @@ Answer: 76504829
 Answer: 28538
 2023 Day4 Puzzle2, Question: How many total scratchcards do you end up with?
 Answer: 9425061
+2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of the initial seed numbers?
+Answer: 251346198
 ```

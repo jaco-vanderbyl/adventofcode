@@ -27,10 +27,8 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
 
         return runBlocking(Dispatchers.Default) {
             val locations = seedRanges.map { seedRange ->
-                val range = seedRange.start..<seedRange.start + seedRange.rangeSize
-
                 async {
-                    for (seed in range) {
+                    for (seed in seedRange.start..<seedRange.start + seedRange.rangeSize) {
                         val location = getLocation(rangeMaps, seed)
                         if (location < lowestLocation) lowestLocation = location
                     }

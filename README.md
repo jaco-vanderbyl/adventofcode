@@ -65,10 +65,13 @@ class App {
                 "the initial naive seed numbers?")
         println("Answer: ${SeedMap().lowestLocation()}")
     }
-    fun year2023Day5Puzzle2() {
-        println("2023 Day5 Puzzle2, Question: What is the lowest location number that corresponds to any of " +
-                "the initial seed numbers?")
-        println("Answer: ${SeedMap().lowestLocationGivenSeedRanges()}")
+    fun year2023Day6Puzzle1() {
+        println("2023 Day6 Puzzle1, Question: What do you get if you multiply these numbers together?")
+        println("Answer: ${BoatRace().betterStrategyPart1()}")
+    }
+    fun year2023Day6Puzzle2() {
+        println("2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?")
+        println("Answer: ${BoatRace().betterStrategyPart2()}")
     }
 }
 
@@ -83,6 +86,8 @@ fun main() {
     App().year2023Day4Puzzle2()
     App().year2023Day5Puzzle1()
     App().year2023Day5Puzzle2()
+    App().year2023Day6Puzzle1()
+    App().year2023Day6Puzzle2()
 }
 ```
 _Note that the answers will differ for individuals as the provided puzzle input for users are different._
@@ -109,4 +114,6 @@ Answer: 9425061
 Answer: 251346198
 2023 Day5 Puzzle2, Question: What is the lowest location number that corresponds to any of the initial seed numbers?
 Answer: 72263011
+2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?
+Answer: 46173809
 ```

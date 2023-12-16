@@ -5,6 +5,7 @@ import adventofcode.year2023.day2.CubeGameAnalyser
 import adventofcode.year2023.day3.Engine
 import adventofcode.year2023.day4.ScratchCards
 import adventofcode.year2023.day5.SeedMap
+import adventofcode.year2023.day6.BoatRace
 
 /**
  * https://adventofcode.com
@@ -48,9 +49,17 @@ class App {
         println("Answer: ${SeedMap().lowestLocation()}")
     }
     fun year2023Day5Puzzle2() {
-        println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
+        println("2023 Day5 Puzzle2, Question: What is the lowest location number that corresponds to any of " +
                 "the initial seed numbers?")
         println("Answer: ${SeedMap().lowestLocationGivenSeedRanges()}")
+    }
+    fun year2023Day6Puzzle1() {
+        println("2023 Day6 Puzzle1, Question: What do you get if you multiply these numbers together?")
+        println("Answer: ${BoatRace().betterStrategyPart1()}")
+    }
+    fun year2023Day6Puzzle2() {
+        println("2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?")
+        println("Answer: ${BoatRace().betterStrategyPart2()}")
     }
 }
 
@@ -65,4 +74,6 @@ fun main() {
     App().year2023Day4Puzzle2()
     App().year2023Day5Puzzle1()
     App().year2023Day5Puzzle2()
+    App().year2023Day6Puzzle1()
+    App().year2023Day6Puzzle2()
 }

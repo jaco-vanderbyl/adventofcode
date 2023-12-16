@@ -29,7 +29,7 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
         ranges.forEach {
             rangeMap[it.second..<it.second + it.third] = it.first..<it.first + it.third
         }
-        return rangeMap.toSortedMap(compareBy { it.first }).toMap()
+        return rangeMap.toMap()
     }
 
     private fun getDestination(rangeMap: Map<LongRange,LongRange>, key: Long) : Long {

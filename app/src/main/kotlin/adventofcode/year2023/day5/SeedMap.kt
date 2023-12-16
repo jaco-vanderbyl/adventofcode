@@ -1,6 +1,9 @@
 package adventofcode.year2023.day5
 
-import java.lang.IllegalArgumentException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.runBlocking
 
 class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     private val inputStr = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.readText()
@@ -14,14 +17,27 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     fun lowestLocation(): Long {
         val seeds = getSeedData()
         val rangeMaps = maps.map { createRangeMap(getMapRangeData(it)) }
-        return seeds.minOf { getDestination(rangeMaps, it) }
+        return seeds.minOf { getLocation(rangeMaps, it) }
     }
 
     fun lowestLocationGivenSeedRanges(): Long {
         val seedRanges = getSeedRangeData()
         val rangeMaps = maps.map { createRangeMap(getMapRangeData(it)) }
-        return seedRanges.minOf { seedRange ->
-            (seedRange.start..<seedRange.start + seedRange.rangeSize).minOf { getDestination(rangeMaps, it) }
+        var lowestLocation = Long.MAX_VALUE
+
+        return runBlocking(Dispatchers.Default) {
+            val locations = seedRanges.map { seedRange ->
+                val range = seedRange.start..<seedRange.start + seedRange.rangeSize
+
+                async {
+                    for (seed in range) {
+                        val location = getLocation(rangeMaps, seed)
+                        if (location < lowestLocation) lowestLocation = location
+                    }
+                    lowestLocation
+                }
+            }.awaitAll()
+            return@runBlocking locations.min()
         }
     }
 
@@ -66,7 +82,7 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
         return value ?: key
     }
 
-    private fun getDestination(rangeMaps: List<Map<LongRange,LongRange>>, seed: Long) : Long {
+    private fun getLocation(rangeMaps: List<Map<LongRange,LongRange>>, seed: Long) : Long {
         var destination: Long = seed
         rangeMaps.forEach {
             destination = getDestination(it, destination)

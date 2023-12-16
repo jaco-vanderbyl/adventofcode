@@ -55,14 +55,14 @@ class App {
 }
 
 fun main() {
-//    App().year2023Day1Puzzle1()
-//    App().year2023Day1Puzzle2()
-//    App().year2023Day2Puzzle1()
-//    App().year2023Day2Puzzle2()
-//    App().year2023Day3Puzzle1()
-//    App().year2023Day3Puzzle2()
-//    App().year2023Day4Puzzle1()
-//    App().year2023Day4Puzzle2()
-//    App().year2023Day5Puzzle1()
+    App().year2023Day1Puzzle1()
+    App().year2023Day1Puzzle2()
+    App().year2023Day2Puzzle1()
+    App().year2023Day2Puzzle2()
+    App().year2023Day3Puzzle1()
+    App().year2023Day3Puzzle2()
+    App().year2023Day4Puzzle1()
+    App().year2023Day4Puzzle2()
+    App().year2023Day5Puzzle1()
     App().year2023Day5Puzzle2()
 }

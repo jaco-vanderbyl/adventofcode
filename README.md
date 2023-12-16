@@ -27,10 +27,6 @@ invokes a specific version of Gradle declared in the build._
 
 ## Progress
 ```kotlin
-package adventofcode
-
-import adventofcode.year2023.day1.Calibrator
-
 class App {
     fun year2023Day1Puzzle1() {
         println("2023 Day1 Puzzle1, Question: What is the not-quite-right sum of all the calibration values?")
@@ -66,8 +62,13 @@ class App {
     }
     fun year2023Day5Puzzle1() {
         println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
-                "the initial seed numbers?")
+                "the initial naive seed numbers?")
         println("Answer: ${SeedMap().lowestLocation()}")
+    }
+    fun year2023Day5Puzzle2() {
+        println("2023 Day5 Puzzle2, Question: What is the lowest location number that corresponds to any of " +
+                "the initial seed numbers?")
+        println("Answer: ${SeedMap().lowestLocationGivenSeedRanges()}")
     }
 }
 
@@ -81,6 +82,7 @@ fun main() {
     App().year2023Day4Puzzle1()
     App().year2023Day4Puzzle2()
     App().year2023Day5Puzzle1()
+    App().year2023Day5Puzzle2()
 }
 ```
 _Note that the answers will differ for individuals as the provided puzzle input for users are different._
@@ -105,4 +107,6 @@ Answer: 28538
 Answer: 9425061
 2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of the initial seed numbers?
 Answer: 251346198
+2023 Day5 Puzzle2, Question: What is the lowest location number that corresponds to any of the initial seed numbers?
+Answer: 72263011
 ```

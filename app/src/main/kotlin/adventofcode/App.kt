@@ -44,19 +44,25 @@ class App {
     }
     fun year2023Day5Puzzle1() {
         println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
-                "the initial seed numbers?")
+                "the initial naive seed numbers?")
         println("Answer: ${SeedMap().lowestLocation()}")
+    }
+    fun year2023Day5Puzzle2() {
+        println("2023 Day5 Puzzle1, Question: What is the lowest location number that corresponds to any of " +
+                "the initial seed numbers?")
+        println("Answer: ${SeedMap().lowestLocationGivenSeedRanges()}")
     }
 }
 
 fun main() {
-    App().year2023Day1Puzzle1()
-    App().year2023Day1Puzzle2()
-    App().year2023Day2Puzzle1()
-    App().year2023Day2Puzzle2()
-    App().year2023Day3Puzzle1()
-    App().year2023Day3Puzzle2()
-    App().year2023Day4Puzzle1()
-    App().year2023Day4Puzzle2()
-    App().year2023Day5Puzzle1()
+//    App().year2023Day1Puzzle1()
+//    App().year2023Day1Puzzle2()
+//    App().year2023Day2Puzzle1()
+//    App().year2023Day2Puzzle2()
+//    App().year2023Day3Puzzle1()
+//    App().year2023Day3Puzzle2()
+//    App().year2023Day4Puzzle1()
+//    App().year2023Day4Puzzle2()
+//    App().year2023Day5Puzzle1()
+    App().year2023Day5Puzzle2()
 }

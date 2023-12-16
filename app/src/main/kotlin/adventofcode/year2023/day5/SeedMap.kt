@@ -1,5 +1,7 @@
 package adventofcode.year2023.day5
 
+import java.lang.IllegalArgumentException
+
 class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     private val seedMapsRaw = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.readText()
         .toString().replace("\r\n".toRegex(), "\n").replace("  ", " ")
@@ -15,14 +17,14 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     private fun getSeedData() : List<Long> = """seeds: (?<seeds>(\d+.+))""".toRegex().find(seedMapsRaw)
         ?.groups?.get("seeds")?.value?.split(" ")?.map {
             it.toLong()
-        } ?: listOf()
+        } ?: throw IllegalArgumentException()
 
     private fun getMapData(name: String) : List<Triple<Long,Long,Long>> = """$name map:\n(?<map>(\d+.+|\n)+)"""
         .toRegex().find(seedMapsRaw)?.groups?.get("map")?.value?.split("\n".toRegex())?.filter { it.isNotEmpty() }
         ?.map {
             val mapValues = it.split(" ")
             Triple(mapValues[0].toLong(), mapValues[1].toLong(), mapValues[2].toLong())
-        } ?: listOf()
+        } ?: throw IllegalArgumentException()
 
     private fun createRangeMap(ranges: List<Triple<Long,Long,Long>>) : Map<LongRange,LongRange> {
         val rangeMap = mutableMapOf<LongRange,LongRange>()

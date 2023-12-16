@@ -7,12 +7,12 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     private val maps = listOf("soil", "fertilizer", "water", "light", "temperature", "humidity", "location")
 
     fun lowestLocation() : Long {
-        val seeds = getSeedsFromInput()
+        val seeds = getSeedData()
         val rangeMaps = maps.map{ createRangeMap(getMapData(it)) }
         return seeds.minOf { getDestination(rangeMaps, it) }
     }
 
-    private fun getSeedsFromInput() : List<Long> = """seeds: (?<seeds>(\d+.+))""".toRegex().find(seedMapsRaw)
+    private fun getSeedData() : List<Long> = """seeds: (?<seeds>(\d+.+))""".toRegex().find(seedMapsRaw)
         ?.groups?.get("seeds")?.value?.split(" ")?.map {
             it.toLong()
         } ?: listOf()

@@ -69,9 +69,13 @@ class App {
         println("2023 Day6 Puzzle1, Question: What do you get if you multiply these numbers together?")
         println("Answer: ${BoatRace().betterStrategyPart1()}")
     }
-    fun year2023Day6Puzzle2() {
-        println("2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?")
-        println("Answer: ${BoatRace().betterStrategyPart2()}")
+    fun year2023Day7Puzzle1() {
+        println("2023 Day7 Puzzle1, Question: What are the total winnings?")
+        println("Answer: ${CamelCards().totalWinningsPart1()}")
+    }
+    fun year2023Day7Puzzle2() {
+        println("2023 Day7 Puzzle2, Question: What are the total winnings using Jokers?")
+        println("Answer: ${CamelCards().totalWinningsPart2()}")
     }
 }
 
@@ -88,6 +92,8 @@ fun main() {
     App().year2023Day5Puzzle2()
     App().year2023Day6Puzzle1()
     App().year2023Day6Puzzle2()
+    App().year2023Day7Puzzle1()
+    App().year2023Day7Puzzle2()
 }
 ```
 _Note that the answers will differ for individuals as the provided puzzle input for users are different._
@@ -116,4 +122,8 @@ Answer: 251346198
 Answer: 72263011
 2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?
 Answer: 46173809
+2023 Day7 Puzzle1, Question: What are the total winnings?
+Answer: 249390788
+2023 Day7 Puzzle2, Question: What are the total winnings using Jokers?
+Answer: 248750248
 ```

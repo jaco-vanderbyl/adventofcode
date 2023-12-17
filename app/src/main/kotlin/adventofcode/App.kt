@@ -6,6 +6,7 @@ import adventofcode.year2023.day3.Engine
 import adventofcode.year2023.day4.ScratchCards
 import adventofcode.year2023.day5.SeedMap
 import adventofcode.year2023.day6.BoatRace
+import adventofcode.year2023.day7.CamelCards
 
 /**
  * https://adventofcode.com
@@ -61,6 +62,14 @@ class App {
         println("2023 Day6 Puzzle2, Question: How many ways can you beat the record in this one much longer race?")
         println("Answer: ${BoatRace().betterStrategyPart2()}")
     }
+    fun year2023Day7Puzzle1() {
+        println("2023 Day7 Puzzle1, Question: What are the total winnings?")
+        println("Answer: ${CamelCards().totalWinningsPart1()}")
+    }
+    fun year2023Day7Puzzle2() {
+        println("2023 Day7 Puzzle2, Question: What are the total winnings using Jokers?")
+        println("Answer: ${CamelCards().totalWinningsPart2()}")
+    }
 }
 
 fun main() {
@@ -76,4 +85,6 @@ fun main() {
     App().year2023Day5Puzzle2()
     App().year2023Day6Puzzle1()
     App().year2023Day6Puzzle2()
+    App().year2023Day7Puzzle1()
+    App().year2023Day7Puzzle2()
 }

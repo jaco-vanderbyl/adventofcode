@@ -1,25 +1,25 @@
-package adventofcode.year2023.day3
+package adventofcode.year2023
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class EngineTest {
+class Day3Test {
     @Test
     fun `ensure total sum of engine parts is correct`() {
-        val engine = Engine("year2023/day3/puzzle1_sample_engine_schematic")
+        val engine = Day3("adventofcode/year2023/sample_day3")
         assertEquals(
             expected = 4361,
-            actual = engine.sumOfPartNumbers(),
+            actual = engine.puzzle1(),
             message = "Failed to ensure total sum of engine parts is correct."
         )
     }
 
     @Test
     fun `ensure total sum of gear ratios is correct`() {
-        val engine = Engine("year2023/day3/puzzle2_sample_engine_schematic")
+        val engine = Day3("adventofcode/year2023/sample_day3")
         assertEquals(
             expected = 467835,
-            actual = engine.sumOfGearRatios(),
+            actual = engine.puzzle2(),
             message = "Failed to ensure total sum of gear ratios is correct."
         )
     }

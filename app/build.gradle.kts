@@ -36,7 +36,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("adventofcode.AppKt")
+    mainClass.set("adventofcode.MainKt")
 }
 
 tasks.named<Test>("test") {

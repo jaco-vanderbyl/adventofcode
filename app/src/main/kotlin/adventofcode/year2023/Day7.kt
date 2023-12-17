@@ -1,6 +1,9 @@
-package adventofcode.year2023.day7
+package adventofcode.year2023
 
-class CamelCards (fileName: String = "year2023/day7/hands") {
+/**
+ * https://adventofcode.com/2023/day/7
+ */
+class Day7 (fileName: String = "adventofcode/year2023/input_day7") {
     private val handsInput = mutableListOf<String>()
 
     init {
@@ -48,12 +51,12 @@ class CamelCards (fileName: String = "year2023/day7/hands") {
         }
     }
 
-    fun totalWinningsPart1() = totalWinnings(handsInput.map {
+    fun puzzle1() = totalWinnings(handsInput.map {
         val input = it.split(" ")
         Hand(cardMapNormal, input[0], input[1].toInt())
     })
 
-    fun totalWinningsPart2() = totalWinnings(handsInput.map {
+    fun puzzle2() = totalWinnings(handsInput.map {
         val input = it.split(" ")
         Hand(cardMapJoker, input[0], input[1].toInt(), useJoker = true)
     })

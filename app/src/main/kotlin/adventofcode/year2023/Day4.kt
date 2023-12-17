@@ -1,21 +1,24 @@
-package adventofcode.year2023.day4
+package adventofcode.year2023
 
 import kotlin.math.pow
 
-class ScratchCards(fileName: String = "year2023/day4/scratch_cards") {
+/**
+ * https://adventofcode.com/2023/day/4
+ */
+class Day4(fileName: String = "adventofcode/year2023/input_day4") {
     private val cards = mutableListOf<String>()
 
     init {
         ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { cards.addAll(it) }
     }
 
-    fun totalPoints() : Int = cardWins().filter { winCount ->
+    fun puzzle1() : Int = cardWins().filter { winCount ->
         winCount > 0
     }.sumOf { winCount ->
         (2.0).pow(winCount - 1).toInt()
     }
 
-    fun totalCards() : Int {
+    fun puzzle2() : Int {
         val cardCounts = IntArray(cards.size) { 1 }
         val cardWins = cardWins()
 

@@ -1,22 +1,22 @@
-package adventofcode.year2023.day1
+package adventofcode.year2023
 
 /**
  * https://adventofcode.com/2023/day/1
  */
-class Calibrator(fileName: String = "year2023/day1/calibration_document") {
+class Day1(fileName: String = "adventofcode/year2023/input_day1") {
     private val calibrations = mutableListOf<String>()
 
     init {
         ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { calibrations.addAll(it) }
     }
 
-    fun sumWithNotQuiteRightCalc() : Int = calibrations.map {
+    fun puzzle1() : Int = calibrations.map {
         it.filter { char -> char.isDigit() }
     }.sumOf {
         if (it.isNotEmpty()) "${it.first()}${it.last()}".toInt() else 0
     }
 
-    fun sum() : Int = calibrations.map {
+    fun puzzle2() : Int = calibrations.map {
         mapOf(
             "one" to "o1e",
             "two" to "t2o",

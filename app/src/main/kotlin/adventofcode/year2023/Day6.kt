@@ -1,14 +1,18 @@
-package adventofcode.year2023.day6
+package adventofcode.year2023
 
-class BoatRace(fileName: String = "year2023/day6/races") {
+/**
+ * https://adventofcode.com/2023/day/6
+ */
+class Day6(fileName: String = "adventofcode/year2023/input_day6") {
     private val races = mutableListOf<String>()
 
     init {
         ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { races.addAll(it) }
     }
 
-    fun betterStrategyPart1() = strategyProduct(times = getValues(row = 0), records = getValues(row = 1))
-    fun betterStrategyPart2() = strategyProduct(times = listOf(getValue(row = 0)), records = listOf(getValue(row = 1)))
+    fun puzzle1() = strategyProduct(times = getValues(row = 0), records = getValues(row = 1))
+
+    fun puzzle2() = strategyProduct(times = listOf(getValue(row = 0)), records = listOf(getValue(row = 1)))
 
     private fun strategyProduct(times: List<Long>, records: List<Long>) : Long = times.mapIndexed { index, time ->
         countBetterStrategies(time, records[index])

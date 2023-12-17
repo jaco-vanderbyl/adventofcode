@@ -1,11 +1,14 @@
-package adventofcode.year2023.day5
+package adventofcode.year2023
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.runBlocking
 
-class SeedMap(fileName: String = "year2023/day5/seed_maps") {
+/**
+ * https://adventofcode.com/2023/day/5
+ */
+class Day5(fileName: String = "adventofcode/year2023/input_day5") {
     private val inputStr = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.readText()
         .toString().replace("\r\n".toRegex(), "\n").replace("  ", " ")
 
@@ -14,13 +17,13 @@ class SeedMap(fileName: String = "year2023/day5/seed_maps") {
     data class MapRange(val destinationStart: Long, val sourceStart: Long, val rangeSize: Long)
     data class SeedRange(val start: Long, val rangeSize: Long)
 
-    fun lowestLocation(): Long {
+    fun puzzle1(): Long {
         val seeds = getSeedData()
         val rangeMaps = maps.map { createRangeMap(getMapRangeData(it)) }
         return seeds.minOf { getLocation(rangeMaps, it) }
     }
 
-    fun lowestLocationGivenSeedRanges(): Long {
+    fun puzzle2(): Long {
         val seedRanges = getSeedRangeData()
         val rangeMaps = maps.map { createRangeMap(getMapRangeData(it)) }
         var lowestLocation = Long.MAX_VALUE

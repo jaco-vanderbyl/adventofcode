@@ -1,15 +1,18 @@
-package adventofcode.year2023.day3
+package adventofcode.year2023
 
-class Engine(fileName: String = "year2023/day3/engine_schematic") {
+/**
+ * https://adventofcode.com/2023/day/3
+ */
+class Day3(fileName: String = "adventofcode/year2023/input_day3") {
     private val schematic = mutableListOf<String>()
 
     init {
         ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.useLines { schematic.addAll(it) }
     }
 
-    fun sumOfPartNumbers() : Int = schematic.asSequence().mapIndexed { rowIndex, row ->
+    fun puzzle1() : Int = schematic.asSequence().mapIndexed { rowIndex, row ->
         """\d+""".toRegex().findAll(row).map {
-            heatCors(rowIndex, it.range.first, it.range.last, it.value.toInt(), schematic.size, row.length)
+            heatCors(rowIndex, it.range.first, it.range.last, it.value.toInt())
         }
     }.flatten().map { heatCors ->
         heatCors.map { heatCor ->
@@ -17,9 +20,7 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
         }.distinct().map { if (it.first) it.second else 0 }
     }.flatten().sum()
 
-    private fun heatCors(
-        row: Int, col1: Int, col2: Int, num: Int, size: Int, length: Int
-    ) : List<Triple<Int,Int,Int>> {
+    private fun heatCors(row: Int, col1: Int, col2: Int, num: Int) : List<Triple<Int,Int,Int>> {
         val heatCors = mutableListOf<Triple<Int,Int,Int>>()
 
         for (colIndex in col1 - 1..col2 + 1) {
@@ -33,7 +34,7 @@ class Engine(fileName: String = "year2023/day3/engine_schematic") {
 
     enum class Dir { LEFT, RIGHT }
 
-    fun sumOfGearRatios() = schematic.mapIndexed { rIndex, row ->
+    fun puzzle2() = schematic.mapIndexed { rIndex, row ->
         """\*""".toRegex().findAll(row).map {
             findParts(rIndex, it.range.first)
         }.filter { isGear(it) }.toList()

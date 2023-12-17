@@ -1,25 +1,25 @@
-package adventofcode.year2023.day2
+package adventofcode.year2023
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class CubeGameAnalyserTest {
+class Day2Test {
     @Test
     fun `ensure total sum of game IDs for possible games is correct`() {
-        val gameAnalyser = CubeGameAnalyser("year2023/day2/puzzle1_sample_cube_games_log")
+        val gameAnalyser = Day2("adventofcode/year2023/sample_day2")
         assertEquals(
             expected = 8,
-            actual = gameAnalyser.sumOfGameIds(redMax = 12, greenMax = 13, blueMax = 14),
+            actual = gameAnalyser.puzzle1(redMax = 12, greenMax = 13, blueMax = 14),
             message = "Failed to ensure total sum of game IDs for possible games is correct."
         )
     }
 
     @Test
     fun `ensure total sum of game set powers is correct`() {
-        val gameAnalyser = CubeGameAnalyser("year2023/day2/puzzle2_sample_cube_games_log")
+        val gameAnalyser = Day2("adventofcode/year2023/sample_day2")
         assertEquals(
             expected = 2286,
-            actual = gameAnalyser.sumOfGameSetPowers(),
+            actual = gameAnalyser.puzzle2(),
             message = "Failed to ensure total sum of game set powers is correct."
         )
     }

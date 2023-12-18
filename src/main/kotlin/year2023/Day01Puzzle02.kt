@@ -3,7 +3,7 @@ package year2023
 /**
  * https://adventofcode.com/2023/day/1
  */
-class Day1Puzzle2(fileName: String = "year2023/input_day1") {
+class Day01Puzzle02(fileName: String = "year2023/input_day01") {
     private val inputReader = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()
 
     fun run() = generateSequence { inputReader?.readLine() }.map { line ->

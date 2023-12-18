@@ -1,6 +1,7 @@
 
-import year2023.Day1
+import year2023.*
 
 fun main() {
-    println(Day1().puzzle1())
+    println(Day1Puzzle1().run())
+    println(Day1Puzzle2().run())
 }

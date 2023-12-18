@@ -1,4 +1,4 @@
-package adventofcode.year2023
+package year2023
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class Day6Test {
     @Test
     fun `ensure product of better strategies is correct`() {
-        val boatRace = Day6("adventofcode/year2023/sample_day6")
+        val boatRace = Day6("year2023/sample_day6")
         assertEquals(
             expected = 288,
             actual = boatRace.puzzle1(),
@@ -16,7 +16,7 @@ class Day6Test {
 
     @Test
     fun `ensure product of better strategies is correct given one big number`() {
-        val boatRace = Day6("adventofcode/year2023/sample_day6")
+        val boatRace = Day6("year2023/sample_day6")
         assertEquals(
             expected = 71503,
             actual = boatRace.puzzle2(),

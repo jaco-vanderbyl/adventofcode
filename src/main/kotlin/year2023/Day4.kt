@@ -1,11 +1,11 @@
-package adventofcode.year2023
+package year2023
 
 import kotlin.math.pow
 
 /**
  * https://adventofcode.com/2023/day/4
  */
-class Day4(fileName: String = "adventofcode/year2023/input_day4") {
+class Day4(fileName: String = "year2023/input_day4") {
     private val cards = mutableListOf<String>()
 
     init {

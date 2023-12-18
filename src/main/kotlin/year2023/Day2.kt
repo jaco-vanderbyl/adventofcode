@@ -1,9 +1,9 @@
-package adventofcode.year2023
+package year2023
 
 /**
  * https://adventofcode.com/2023/day/2
  */
-class Day2(fileName: String = "adventofcode/year2023/input_day2") {
+class Day2(fileName: String = "year2023/input_day2") {
     private val gameLog = mutableListOf<String>()
 
     init {

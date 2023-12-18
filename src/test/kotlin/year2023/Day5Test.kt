@@ -1,4 +1,4 @@
-package adventofcode.year2023
+package year2023
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class Day5Test{
     @Test
     fun `ensure seed-to-lowest-location is correct`() {
-        val seedMap = Day5("adventofcode/year2023/sample_day5")
+        val seedMap = Day5("year2023/sample_day5")
         assertEquals(
             expected = 35,
             actual = seedMap.puzzle1(),
@@ -15,7 +15,7 @@ class Day5Test{
     }
 
     fun `ensure seed-to-lowest-location is correct given seed ranges`() {
-        val seedMap = Day5("adventofcode/year2023/sample_day5")
+        val seedMap = Day5("year2023/sample_day5")
         assertEquals(
             expected = 46,
             actual = seedMap.puzzle2(),

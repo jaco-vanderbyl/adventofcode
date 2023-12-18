@@ -1,4 +1,4 @@
-package adventofcode.year2023
+package year2023
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 /**
  * https://adventofcode.com/2023/day/5
  */
-class Day5(fileName: String = "adventofcode/year2023/input_day5") {
+class Day5(fileName: String = "year2023/input_day5") {
     private val inputStr = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()?.readText()
         .toString().replace("\r\n".toRegex(), "\n").replace("  ", " ")
 

@@ -6,6 +6,8 @@ package year2023
 class Day01Puzzle02(fileName: String = "year2023/input_day01") {
     private val inputReader = ClassLoader.getSystemResourceAsStream(fileName)?.bufferedReader()
 
+    // Consider your entire calibration document. What is the sum of all the calibration values,
+    // given that digits are also spelled out with letters?
     fun run() = generateSequence { inputReader?.readLine() }.map { line ->
         mapOf(
             "one" to "o1e", "two" to "t2o", "three" to "t3e", "four" to "f4r", "five" to "f5e",

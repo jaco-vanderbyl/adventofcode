@@ -10,6 +10,7 @@ class Day03Puzzle01(fileName: String = "year2023/input_day03") {
     data class Number(val value: Int, val row: Int, val colFirst: Int, val colLast: Int)
     data class Cor(val row: Int, val col: Int)
 
+    // What is the sum of all of the part numbers in the engine schematic?
     fun run() : Int = schematic.mapIndexed { row, str ->
         findNumbers(row, str)
     }.flatten().let { numbers ->

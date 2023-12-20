@@ -9,6 +9,7 @@ class Day03Puzzle02(fileName: String = "year2023/input_day03") {
 
     enum class Dir { LEFT, RIGHT }
 
+    // What is the sum of all the gear ratios in your engine schematic?
     fun run() = schematic.mapIndexed { row, str ->
         findGears(row, str)
     }.flatten().sumOf { gears ->

@@ -37,17 +37,17 @@ class Day03Puzzle02(fileName: String = "year2023/input_day03") {
     private fun findPart(row: Int, col: Int) : String? {
         val char = if (inBounds(row, col)) schematic[row][col] else ' '
         return when (char.isDigit()) {
-            true -> "${findPart(Dir.LEFT, row, col - 1)}${char}${findPart(Dir.RIGHT, row, col + 1)}"
+            true -> "${findPartialPart(Dir.LEFT, row, col - 1)}${char}${findPartialPart(Dir.RIGHT, row, col + 1)}"
             false -> null
         }
     }
 
-    private fun findPart(dir: Dir, row: Int, col: Int, partialPart: String = "") : String {
+    private fun findPartialPart(dir: Dir, row: Int, col: Int, partialPart: String = "") : String {
         val char = if (inBounds(row, col)) schematic[row][col] else ' '
         return when (char.isDigit()) {
             true -> when (dir) {
-                Dir.LEFT -> findPart(dir, row, col - 1, partialPart = char + partialPart)
-                Dir.RIGHT -> findPart(dir, row, col + 1, partialPart = partialPart + char)
+                Dir.LEFT -> findPartialPart(dir, row, col - 1, partialPart = char + partialPart)
+                Dir.RIGHT -> findPartialPart(dir, row, col + 1, partialPart = partialPart + char)
             }
             false -> partialPart
         }

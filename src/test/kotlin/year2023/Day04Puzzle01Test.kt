@@ -7,7 +7,7 @@ class Day04Puzzle01Test{
     @Test fun `ensure total points of scratch cards are correct`() {
         assertEquals(
             expected = 13,
-            actual = Day04Puzzle01("year2023/sample_day4").run(),
+            actual = Day04Puzzle01("year2023/sample_day04").run(),
             message = "Failed to ensure total points of scratch cards are correct."
         )
     }

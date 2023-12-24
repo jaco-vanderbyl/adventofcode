@@ -23,7 +23,7 @@ class Day05Puzzle02(fileName: String = "year2023/input_day05") {
     class Seeds(private val ranges: List<SeedRange>) {
         val minRangeSize: Long = ranges.minOf { it.rangeSize }
 
-        fun isSeedInRange(seed: Long) : Boolean {
+        fun inRange(seed: Long) : Boolean {
             ranges.forEach { if (seed in it.range) return true }
             return false
         }
@@ -32,27 +32,40 @@ class Day05Puzzle02(fileName: String = "year2023/input_day05") {
     class Maps(private val ranges: List<MapRange>) {
         private val locationRange = 0..ranges.maxOf { it.max() }
 
+        /**
+         * Using the smallest seed range size as the step size,
+         * step over the location range until a location that maps to a legit seed is found,
+         * then recursively adjust the range and step-size, until the lowest location is found.
+         */
         fun lowestLocation(seeds: Seeds, range: LongRange = locationRange, step: Long = seeds.minRangeSize) : Long? {
-            val halfRangeDiff = abs((range.last - range.first) / 2)
-            var newStep = if (step <= halfRangeDiff) step else halfRangeDiff
-            if (newStep < 1) newStep = 1L
+            // As range sizes are reduced recursively, ensure that range can be stepped through at least twice.
+            val halfRangeDiff = abs((range.last - range.first + 2) / 2)
+            val newStep = if (step <= halfRangeDiff) step else halfRangeDiff
 
             var lastLocation = range.first
             for (location in range step newStep) {
-                if (seeds.isSeedInRange(findSeed(location))) {
+                if (seeds.inRange(findSeed(location))) {
+                    // Range size has been reduced to 1, the seed with the lowest location has been found.
                     if (range.last - range.first == 0L) return location
 
+                    // A location that maps to a legit seed has been found in the range.
+                    // The lowest location must be somewhere in the last step; set range accordingly for the next pass.
+                    // The next pass will start to reduce the step sizes, and this condition will not be true again.
                     if (step <= halfRangeDiff) return lowestLocation(seeds, (location - newStep)..location, newStep)
 
-                    val midRange = range.first + abs((location - range.first) / 2)
-                    return when (val firstHalf = lowestLocation(seeds, range.first..midRange, newStep)) {
-                        null -> lowestLocation(seeds, (midRange + 1)..location, newStep)
+                    // The lowest location is either in the first or second half of the range.
+                    // Try the first half first, and proceed to the second half if the first yields nothing.
+                    val midRange = range.first + abs((location - range.first) / 2) + 1
+                    return when (val firstHalf = lowestLocation(seeds, range.first..<midRange, newStep)) {
+                        null -> lowestLocation(seeds, midRange..location, newStep)
                         else -> firstHalf
                     }
                 }
                 lastLocation = location
             }
 
+            // The step size will not always be a factor of the range size.
+            // Ensure that the remainder at the end of the range is searched.
             if (lastLocation < range.last) return lowestLocation(seeds, lastLocation..range.last, newStep)
 
             return null

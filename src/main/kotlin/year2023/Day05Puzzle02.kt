@@ -13,25 +13,25 @@ class Day05Puzzle02(fileName: String = "year2023/input_day05") {
     fun run(): Long {
         val inputStr = inputReader?.readText()?.replace("\r\n", "\n")?.replace("  ", " ") ?: ""
         val seeds = Seeds(ranges = getSeedRanges(inputStr))
-        val maps = Maps(ranges = MapType.entries.map { mapType -> getMapRanges(inputStr, mapType) }.flatten())
+        val maps = Maps(ranges = MapType.entries.map { mapType -> getMapRanges(mapType, inputStr) }.flatten())
         return maps.lowestLocation(seeds) ?: throw IllegalArgumentException()
     }
 
     enum class MapType { SOIL, FERTILIZER, WATER, LIGHT, TEMPERATURE, HUMIDITY, LOCATION }
 
-    data class SeedRange(val start: Long, val rangeSize: Long) {
-        val range = start..<(start + rangeSize)
+    data class SeedRange(val first: Long, val size: Long) {
+        val range = first..<(first + size)
     }
 
-    data class MapRange(val mapType: MapType, val destinationStart: Long, val sourceStart: Long, val rangeSize: Long) {
-        val source = sourceStart..<(sourceStart + rangeSize)
-        val destination = destinationStart..<(destinationStart + rangeSize)
+    data class MapRange(val mapType: MapType, val destinationFirst: Long, val sourceFirst: Long, val size: Long) {
+        val destination = destinationFirst..<(destinationFirst + size)
+        val source = sourceFirst..<(sourceFirst + size)
         val first = minOf(source.first, destination.first)
         val last = maxOf(source.last, destination.last)
     }
 
     class Seeds(private val ranges: List<SeedRange>) {
-        val minRangeSize: Long = ranges.minOf { it.rangeSize }
+        val minRangeSize: Long = ranges.minOf { it.size }
 
         fun inRange(seed: Long) : Boolean {
             ranges.forEach { if (seed in it.range) return true }
@@ -104,7 +104,7 @@ class Day05Puzzle02(fileName: String = "year2023/input_day05") {
         SeedRange(seedValues[0].toLong(), seedValues[1].toLong())
     }.toList()
 
-    private fun getMapRanges(str: String, mapType: MapType) : List<MapRange> {
+    private fun getMapRanges(mapType: MapType, str: String) : List<MapRange> {
         return """${mapType.name.lowercase()} map:\n(?<map>(\d+.+|\n)+)""".toRegex().find(
             str
         )?.groups?.get("map")?.value?.split("\n".toRegex())?.filter { it.isNotEmpty() }?.map {

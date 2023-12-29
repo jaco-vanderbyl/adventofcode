@@ -56,7 +56,7 @@ class Day05Puzzle02(fileName: String = "year2023/input_day05") {
             for (location in range step newStep) {
                 if (seeds.inRange(findSeed(location))) {
                     // The range size has been reduced to 1; the seed with the lowest location has been found.
-                    if (range.last - range.first == 0L) return location
+                    if (range.first == range.last) return location
 
                     // A location that maps to a legit seed has been found in the range.
                     // The lowest location must be somewhere in the last step; set range accordingly for the next pass.
